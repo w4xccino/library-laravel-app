@@ -9,5 +9,15 @@
 </head>
 <body>
     <h1>Home</h1>
+     @auth
+    <p>Bienvenido {{auth()->user()->name ?? auth()->user()->username}}, estas logeado a la pagina</p>
+    <p>
+        <a href="/logout">Logout</a>
+    </p>
+     @endauth
+    @guest
+    <p>Hola, estas como invitado</p>
+    <p>SI quires ver mas contenido, <a href="/login">Inicia Sesion</a></p>
+    @endguest
 </body>
-</html>
+</htmL>
