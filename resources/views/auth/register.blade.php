@@ -24,6 +24,10 @@
           @csrf
           <div class="form-field">
             <label for="username" id="username">Username</label>
+            <input type="text" name="username">
+          </div><br>
+          <div class="form-field">
+            <label for="name" id="name">Name</label>
             <input type="text" name="name">
           </div><br>
           <div class="form-field">
@@ -31,7 +35,7 @@
             <input type="email" name="email">
           </div><br>
           <div class="form-field">
-            <label for="username" id="username">Telephone</label>
+            <label for="telephone" id="telephone">Telephone</label>
             <input type="text" name="telephone">
           </div><br>
           <div class="form-field">
@@ -40,9 +44,9 @@
           </div><br>
           <div class="form-field">
             <label for="password">Confirm Password</label>
-            <input type="password" name="c_password">
+            <input type="password" name="password_c">
           </div><br>
-          <button class="btn-large waves-effect waves-dark" style="width:100%;">Register</button>
+          <button type="submit" class="btn-large waves-effect waves-dark" style="width:100%;">Register</button>
       </div><br>
       </form>
 
