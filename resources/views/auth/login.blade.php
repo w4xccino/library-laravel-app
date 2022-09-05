@@ -20,7 +20,8 @@
         <div class="card-action teal lighten-1 white-text">
           <h3>Login App</h3>
         </div>
-        <form class="card-content">
+        <form class="card-content" action="/login" method="POST">
+        @csrf
           <div class="form-field">
             <label for="username" id="username">Username</label>
             <input type="text" name="username">
@@ -30,7 +31,12 @@
             <input type="password" name="password">
           </div><br>
           <div class="form-field">
-            <button class="btn-large waves-effect waves-dark" style="width:100%;">Login</button>
+            <button type="submit" class="btn-large waves-effect waves-dark" style="width:100%;">Login</button>
+          </div><br>
+          <div class="form-field">
+            <a href='register' class="btn-large waves-effect waves-dark" style="width:100%;">
+              Register
+            </a>
           </div><br>
         </form>
 
