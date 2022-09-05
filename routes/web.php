@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", function () {
+    return view("welcome");
 });
 
 Route::get("/login", function () {
     return view("login");
 });
 
-Route::post("/register", [UserController::class, 'register'])->name('register');
-Route::get("/register", [UserController::class, 'getRegister'])->name('register');
+Route::get("/register", function () {
+    return view("auth.register");
+});
+
+Route::post("/register", [RegisterController::class, "register"]);

@@ -20,15 +20,15 @@
         <div class="card-action teal lighten-1 white-text">
           <h3>Register Page</h3>
         </div>
-        <form class="card-content" method="POST" action="{{route('register')}}">
+        <form class="card-content" method="POST" action="/register">
           @csrf
           <div class="form-field">
             <label for="username" id="username">Username</label>
             <input type="text" name="name">
           </div><br>
           <div class="form-field">
-            <label for="username" id="username">Address</label>
-            <input type="text" name="address">
+            <label for="email" id="email">Email</label>
+            <input type="email" name="email">
           </div><br>
           <div class="form-field">
             <label for="username" id="username">Telephone</label>
