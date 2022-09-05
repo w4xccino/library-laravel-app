@@ -10,6 +10,10 @@ class LoginController extends Controller
 {
     public function show()
     {
+        //redirect if user has already logged
+        if (Auth::check()) {
+            return redirect("/home");
+        }
         return view("auth.login");
     }
 
