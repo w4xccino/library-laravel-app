@@ -14,6 +14,9 @@
     <p>
         <a href="/logout">Logout</a>
     </p>
+    <div>
+        <img src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg">
+    </div>
      @endauth
     @guest
     <p>Hola, estas como invitado</p>
