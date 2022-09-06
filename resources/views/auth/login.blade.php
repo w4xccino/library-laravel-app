@@ -39,7 +39,7 @@
             </a>
           </div><br>
         </form>
-
+        <a href="#">I forgot my password...</a>
       </div>
     </div>
   </div>

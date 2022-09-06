@@ -14,8 +14,14 @@
 </head>
 
 <body>
-  <div class="row center-align">
+  <div class="row">
     <div class="col s12 m8 l4 offset-m2 offset-l4">
+  <div class="mt-2">
+    <a href="\login">
+    <button class="btn waves-effect waves-light" type="button">Log In
+    </button>
+    </a>
+  </div>
       <div class="card">
         <div class="card-action teal lighten-1 white-text">
           <h3>Register Page</h3>
@@ -50,8 +56,7 @@
       </div><br>
       </form>
 
-    </div>
-  </div>
+
   </div>
 </body>
 

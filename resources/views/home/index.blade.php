@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content=
-    "width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
-</head>
-<body>
-    <h1>Home</h1>
+@extends("layouts.app-master")
+@section("content")
+    <div class="m-44 mt-5">
+    <h1 class="text-8xl">Home</h1>
      @auth
-    <p>Bienvenido {{auth()->user()->name ?? auth()->user()->username}}, estas logeado a la pagina</p>
-    <p>
-        <a href="/logout">Logout</a>
-    </p>
+    <div class="flex">
+    <p>Bienvenido <span class="font-semibold text-gray-900 underline dark:text-black decoration-indigo-500">{{auth()->user()->name ?? auth()->user()->username}}</span>, estas logeado a la pagina</p>
     <div>
-        <img src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg">
+        <img class="w-96 h-auto rounded-full"  src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg">
+    </div>
     </div>
      @endauth
     @guest
-    <p>Hola, estas como invitado</p>
-    <p>SI quires ver mas contenido, <a href="/login">Inicia Sesion</a></p>
-    @endguest
-</body>
-</htmL>
+   <p>Hola, estas como invitado</p>
+   <p>SI quieres ver mas contenido, <a href="/login" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><button>Inicia Sesion</button></a></p>
+  @endguest
+   </div>
+@endsection
