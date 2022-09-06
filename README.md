@@ -13,6 +13,18 @@
 - Composer Version: `2.4.1`
 - PostgresSQL Version (psql): `14.5`
 
+## How to run it?
+
+1. You must to install the npm dependencies
+```
+npm install 
+```
+2. You must to create an `.env` file that contains DB info
+3. Start the server.
+```
+php artisan serve
+```
+
 ## About Laravel
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
