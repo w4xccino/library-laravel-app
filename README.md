@@ -8,7 +8,7 @@
 </p>
 
 ## System's Requirements
-- PHP Version: `8.1.9`
+- PHP Version: `7.4.30`
 - Laravel Version: `8.83.23`
 - Composer Version: `2.4.1`
 - PostgresSQL Version (psql): `14.5`
