@@ -18,10 +18,13 @@ use App\Http\Controllers\LogoutController;
 |
 */
 
-Route::get("/", [HomeController::class, "show"]);
 Route::get("/register", [RegisterController::class, "show"]);
 Route::post("/register", [RegisterController::class, "register"]);
-Route::get("/login", [LoginController::class, "show"]);
+Route::get("/login", [LoginController::class, "show"])->name("login");
 Route::post("/login", [LoginController::class, "login"]);
-Route::get("/home", [HomeController::class, "show"]);
-Route::get("/logout", [LogoutController::class, "logout"]);
+
+Route::group(["middleware" => ["auth"]], function () {
+    Route::get("/logout", [LogoutController::class, "logout"]);
+    Route::get("/home", [HomeController::class, "show"]);
+    Route::get("/", [HomeController::class, "show"]);
+});
