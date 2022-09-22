@@ -24,6 +24,7 @@ class User extends Authenticatable
         "telephone",
         "email",
         "password",
+        "role_id",
     ];
 
     /**
@@ -45,5 +46,9 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes["password"] = Hash::make($value);
+    }
+    public function role()
+    {
+        $this->belongsTo(Role::class, "role_id");
     }
 }

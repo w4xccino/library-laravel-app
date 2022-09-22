@@ -30,6 +30,7 @@ class RegisterRequest extends FormRequest
             "telephone" => "required|min:9",
             "password" => "required|min:8",
             "password_c" => "required|same:password",
+            "role_id" => "required",
         ];
     }
 }

@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register Page</title>
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -47,16 +43,20 @@
           <div class="form-field">
             <label for="password">Password</label>
             <input type="password" name="password">
-          </div><br>
+          </
           <div class="form-field">
             <label for="password">Confirm Password</label>
             <input type="password" name="password_c">
           </div><br>
+          <div class="">
+            @foreach($roles as $role)
+            <input id={{$role->id}} type="radio" name="role_id" value={{$role->id}}>
+            <label for={{$role->id}}> {{$role->description}}</label>
+            @endforeach
+          </div><br>
           <button type="submit" class="btn-large waves-effect waves-dark" style="width:100%;">Register</button>
       </div><br>
       </form>
-
-
   </div>
 </body>
 

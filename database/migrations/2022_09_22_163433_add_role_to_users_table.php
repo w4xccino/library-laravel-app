@@ -15,7 +15,7 @@ class AddRoleToUsersTable extends Migration
     {
         Schema::table("users", function (Blueprint $table) {
             $table
-                ->foreignId("role_id ad")
+                ->foreignId("role_id")
                 ->nullable()
                 ->constrained("roles")
                 ->cascadeOnUpdate()
@@ -31,7 +31,7 @@ class AddRoleToUsersTable extends Migration
     public function down()
     {
         Schema::table("users", function (Blueprint $table) {
-            //
+            $table->dropColumn("role_id");
         });
     }
 }
