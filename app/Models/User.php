@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -47,12 +48,13 @@ class User extends Authenticatable
     {
         $this->attributes["password"] = Hash::make($value);
     }
+
     public function role()
     {
-        $this->belongsTo(Role::class, "role_id");
+        return $this->belongsTo(Role::class, "role_id");
     }
     public function articles()
     {
-        return $this->hasMany(Article::class, "author_id");
+        return $this->hasMany(Article::class, "id");
     }
 }
