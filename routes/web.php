@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\NotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::post("/login", [LoginController::class, "login"]);
 
 Route::group(["middleware" => ["auth"]], function () {
     Route::get("/logout", [LogoutController::class, "logout"]);
+    Route::get("/notes", [NotesController::class, "show"]);
+    Route::get("/add-note", [NotesController::class, "addNewNoteGet"]);
+    Route::post("/add-note", [NotesController::class, "addNewNotePost"]);
     Route::get("/home", [HomeController::class, "show"]);
     Route::get("/", [HomeController::class, "show"]);
 });

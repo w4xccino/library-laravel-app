@@ -20,7 +20,7 @@
   </div>
       <div class="card">
         <div class="card-action teal lighten-1 white-text">
-          <h3>Register Page</h3>
+          <h3>Register
         </div>
         <form class="card-content" method="POST" action="/register">
           @csrf
