@@ -8,11 +8,26 @@ use App\Models\Article;
 
 class NotesController extends Controller
 {
+    public function getUserType()
+    {
+        $userType = Auth::user()->role_id;
+        if ($userType == 2) {
+            return false;
+        }
+        return true;
+    }
+
     public function show()
     {
-        $userId = Auth::id();
-        $articles = Article::where("author_id", "=", $userId)->get();
-        return view("notes.notes")->with("articles", $articles);
+        if ($this->getUserType()) {
+            $userId = Auth::id();
+            $articles = Article::where("author_id", "=", $userId)->get();
+            return view("notes.notes")->with("articles", $articles);
+        } else {
+            $articles = Article::all();
+            // dd($articles->author->name);
+            return view("notes.notes")->with("articles", $articles);
+        }
     }
 
     public function addNewNoteGet()
