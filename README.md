@@ -16,6 +16,12 @@
 
 ## How to run it?
 
+0. Install composer dependencies
+
+```
+composer install
+```
+
 1. You must to install the npm dependencies
 
 ```
@@ -23,7 +29,22 @@ npm install
 ```
 
 2. You must to create an `.env` file that contains DB info
-3. Start the server.
+
+```
+cp .env.example .env
+```
+
+```
+php artisan key:generate
+```
+
+5. Set the seeds
+
+```
+php migrate:fresh --seed
+```
+
+6. Start the server.
 
 ```
 php artisan serve
