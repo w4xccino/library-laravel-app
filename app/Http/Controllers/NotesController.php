@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Article;
 
@@ -41,15 +42,24 @@ class NotesController extends Controller
         $request->validate([
             "title" => "required",
             "content" => "required",
+            "image" => "required",
         ]);
-
+        $article = new Article();
+        if ($request->hasFile("image")) {
+            $destinationPath = "public/images";
+            $image = $request->file("image");
+            $imageName = Str::random(9) . "." . $request->image->extension();
+            $path = $request
+                ->file("image")
+                ->storeAs($destinationPath, $imageName);
+            $article["image"] = $imageName;
+        }
         // $article = Article::create([
         //     "title" => $request->title,
         //     "author" => $request->$user,
         //     "content" => $request->content,
         // ]);
 
-        $article = new Article();
         $article->title = $request->title;
         $article->author_id = $user;
         $article->content = $request->content;
