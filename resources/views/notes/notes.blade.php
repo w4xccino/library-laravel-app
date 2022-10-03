@@ -19,7 +19,9 @@
           <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">View All</button>
         </div>
         <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
-          <image height="10px" src="{{asset('/storage/images/').'/'.$article->image}}">
+          @foreach($article->images as $img)
+          <image height="10px" src="{{asset('/storage/images/').'/'.$img->name}}">
+          @endforeach
         </div>
         <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
             {{$article->author->name}}

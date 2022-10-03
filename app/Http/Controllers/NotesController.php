@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Article;
+use App\Models\Image;
 
 class NotesController extends Controller
 {
@@ -39,12 +40,14 @@ class NotesController extends Controller
     public function addNewNotePost(Request $request)
     {
         $user = Auth::id();
+        $article = new Article();
+        $imageModel = new Image();
+
         $request->validate([
             "title" => "required",
             "content" => "required",
             "image" => "required",
         ]);
-        $article = new Article();
         if ($request->hasFile("image")) {
             $destinationPath = "public/images";
             $image = $request->file("image");
@@ -52,8 +55,9 @@ class NotesController extends Controller
             $path = $request
                 ->file("image")
                 ->storeAs($destinationPath, $imageName);
-            $article["image"] = $imageName;
+            $imageModel->name = $imageName;
         }
+
         // $article = Article::create([
         //     "title" => $request->title,
         //     "author" => $request->$user,
@@ -65,6 +69,8 @@ class NotesController extends Controller
         $article->content = $request->content;
         $article->timestamps = false; //this is useful when our model doesn't have enabled timestamps
         $article->save();
+        $imageModel->article_id = $article->id;
+        $imageModel->save();
         return view("home.index");
     }
 }
